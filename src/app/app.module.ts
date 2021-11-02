@@ -7,11 +7,12 @@ import { HomeComponent } from './navegacao/home/home.component';
 import { FooterComponent } from './navegacao/footer/footer.component';
 import { MenuComponent } from './navegacao/menu/menu.component';
 import { NotFoundComponent } from './navegacao/not-found/not-found.component';
+import { NavegacaoModule } from './navegacao/navegacao.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    
+
     HomeComponent,
     FooterComponent,
     MenuComponent,
@@ -19,7 +20,8 @@ import { NotFoundComponent } from './navegacao/not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NavegacaoModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
