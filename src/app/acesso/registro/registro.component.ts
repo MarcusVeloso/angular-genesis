@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 import { Observable, fromEvent, merge } from 'rxjs';  
 import { CustomValidators } from 'ngx-custom-validators';
+import { ToastrService } from 'ngx-toastr';
 
 import { Usuario } from '../models/usuario';
 import { AcessoService } from '../services/acesso.service';
@@ -31,7 +32,8 @@ export class RegistroComponent implements OnInit, AfterViewInit {
 
   constructor(private fb: FormBuilder,
     private acessoService: AcessoService,
-    private router:Router) { 
+    private router:Router,
+    private toastr: ToastrService) { 
 
       this.validationMessages = {
         email: {
@@ -99,17 +101,17 @@ export class RegistroComponent implements OnInit, AfterViewInit {
 
     this.acessoService.LocalStorage.salvarDadosLocaisUsuario(response);
 
-    // let toast = this.toastr.success('Registro realizado com Sucesso!', 'Bem vindo!!!');
-    // if(toast){
-    //   toast.onHidden.subscribe(() => {
+    let toast = this.toastr.success('Registro realizado com Sucesso!', 'Bem vindo!!!');
+    if(toast){
+      toast.onHidden.subscribe(() => {
         this.router.navigate(['/home']);
-    //   });
-    // }
+      });
+    }
   }
 
   processarFalha(fail: any){
     this.errors = fail.error.errors;
-    // this.toastr.error('Ocorreu um erro!', 'Opa :(');
+    this.toastr.error('Ocorreu um erro!', 'Opa :(');
   }
 
 }
