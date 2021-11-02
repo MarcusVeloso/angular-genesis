@@ -9,8 +9,9 @@ import { NavegacaoModule } from './navegacao/navegacao.module';
   declarations: [
     AppComponent,
   ],
-  imports: [
-    BrowserModule,
+    imports: [
+      BrowserModule,
+    
     AppRoutingModule,
     NavegacaoModule
   ],
