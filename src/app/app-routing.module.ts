@@ -10,6 +10,10 @@ const routes: Routes = [
     loadChildren: () => import('./acesso/acesso.module')
      .then(m => m.AcessoModule)
   },
+  {path: 'fornecedores',
+    loadChildren: () => import('./fornecedor/fornecedor.module')
+    .then(f => f.FornecedorModule)
+  },
   { path: 'nao-encontrado', component: NotFoundComponent },
   { path: '**', component: NotFoundComponent }
 ];
