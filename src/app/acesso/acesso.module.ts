@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { AcessoService } from './services/acesso.service';
 import { CustomFormsModule } from 'ngx-custom-validators';
+import { AcessoGuard } from '../services/acesso.guard';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CustomFormsModule } from 'ngx-custom-validators';
     CustomFormsModule, //NGX-CUSTOM-VALIDATORS
   ],
   providers:[
-    AcessoService
+    AcessoService,
+    AcessoGuard,
   ]
 })
 export class AcessoModule { }
