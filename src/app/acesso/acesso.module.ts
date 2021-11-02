@@ -9,6 +9,8 @@ import { AcessoRoutingModule } from './acesso.route';
 
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
+import { AcessoService } from './services/acesso.service';
+import { CustomFormsModule } from 'ngx-custom-validators';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,11 @@ import { RegistroComponent } from './registro/registro.component';
     AcessoRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    CustomFormsModule, //NGX-CUSTOM-VALIDATORS
+  ],
+  providers:[
+    AcessoService
   ]
 })
 export class AcessoModule { }
