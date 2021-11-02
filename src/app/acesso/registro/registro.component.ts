@@ -10,7 +10,6 @@ import { Usuario } from '../models/usuario';
 import { AcessoService } from '../services/acesso.service';
 import { DisplayMessage, GenericValidator, ValidationMessages } from 'src/app/utils/generic-form-validation';
 
-
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
