@@ -71,7 +71,17 @@ export class NovoComponent implements OnInit {
       nome: ['', [Validators.required]],
       documento: ['', [Validators.required]],
       ativo: ['', [Validators.required]],
-      tipoFornecedor: ['', [Validators.required]]     
+      tipoFornecedor: ['', [Validators.required]],
+
+      endereco: this.fb.group({
+        logradouro: ['', [Validators.required]],
+        numero: ['', [Validators.required]],
+        complemento: ['', [Validators.required]],
+        bairro: ['', [Validators.required]],
+        cep: ['', [Validators.required]],
+        cidade: ['', [Validators.required]],
+        estado: ['', [Validators.required]],
+      })
     });
   }
 
