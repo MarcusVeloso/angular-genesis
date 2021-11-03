@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgBrazil } from 'ng-brazil';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +19,7 @@ import { NavegacaoModule } from './navegacao/navegacao.module';
     AppRoutingModule,
     NavegacaoModule,
     BrowserAnimationsModule,
+    NgBrazil,
     ToastrModule.forRoot(),
   ],
   providers: [],
