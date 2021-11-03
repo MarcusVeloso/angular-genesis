@@ -16,3 +16,8 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 $ npm install --save ng-brazil js-brasil
 $ npm i -S angular2-text-mask text-mask-addons
 https://www.npmjs.com/package/ng-brazil
+
+## Extenal services
+
+## Via CEP
+https://viacep.com.br/

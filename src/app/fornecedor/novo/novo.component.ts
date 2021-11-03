@@ -4,12 +4,13 @@ import { Router } from '@angular/router';
 
 import { Observable, fromEvent, merge } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
-
 import { MASKS, NgBrazilValidators } from 'ng-brazil';
 
 import { ValidationMessages, GenericValidator, DisplayMessage } from 'src/app/utils/generic-form-validation';
 import { Fornecedor } from '../models/fornecedor';
 import { FornecedorService } from '../services/fornecedor.service';
+import { CepConsulta } from '../models/endereco';
+import { StringUtils } from '../../utils/string-utils';
 
 @Component({
   selector: 'app-novo',
@@ -136,6 +137,29 @@ export class NovoComponent implements OnInit {
 
   documento():AbstractControl {
     return this.fornecedorForm.get('documento');
+  }
+
+  buscarCep(cep:string){
+
+    cep = StringUtils.somenteNumeros(cep);
+    if(cep.length < 8 ) return;
+
+    this.fornecedorService
+        .consultarCep(cep)
+        .subscribe(retorno => this.preencherEnderecoConsulta(retorno),
+          erro => this.errors.push(erro));
+  }
+
+  preencherEnderecoConsulta(cepConsulta:CepConsulta){
+    this.fornecedorForm.patchValue({
+      endereco: {
+        logradouro: cepConsulta.logradouro,
+        bairro: cepConsulta.bairro,
+        cep: cepConsulta.cep,
+        cidade: cepConsulta.localidade,
+        estado: cepConsulta.uf,
+      }
+    });
   }
 
    adicionarFornecedor() {
