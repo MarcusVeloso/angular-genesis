@@ -13,6 +13,7 @@ import { DetalhesComponent } from './detalhes/detalhes.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TextMaskModule } from 'angular2-text-mask';
 import { NgBrazil } from 'ng-brazil';
+import { FornecedorResolver } from './services/fornecedor.resolver';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NgBrazil } from 'ng-brazil';
     NgBrazil
   ],
   providers: [
-    FornecedorService
+    FornecedorService,
+    FornecedorResolver,
   ]
 })
 export class FornecedorModule { }
